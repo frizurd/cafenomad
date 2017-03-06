@@ -1,0 +1,40 @@
+*{
+
+
+}
+
+#content {
+	width:400px;
+	top:20px;
+	position:relative;
+
+}
+
+.box {
+	float:left;
+	margin-top:20px;
+	color: #FFFFFF;
+	width:100%;
+	background-color: salmon;
+	padding: 20px;
+}
+
+.btn-group{
+	margin-top:20px;
+}
+
+.box a {
+color: #FFFFFF;
+}
+
+.likes {
+background-color: white;
+color: salmon;
+border-radius: 5px;
+}
+
+.mouseovers {
+background-color: white;
+color: salmon;
+border-radius: 5px;
+}
