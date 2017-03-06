@@ -8,6 +8,10 @@ app.config(function($routeProvider){
 			controller: "MainController",
 			templateUrl: "views/home.html"
 		})
+		.when('/admin', {
+			controller: "AdminController",
+			templateUrl: "views/admin.html"
+		})
 		.otherwise({
 			redirectTo: '/'
 		});
