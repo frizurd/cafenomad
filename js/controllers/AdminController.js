@@ -4,18 +4,18 @@ app.controller('AdminController', function($scope, $routeParams, $http){
 function activate(){
 
 $http.get('https://coffinomad.azurewebsites.net/api/caffees').
-    success(function(data, status, headers, config) {
+    success(function(data) {
       $scope.cafes = data;
     }).
-    error(function(data, status, headers, config) {
+    error(function(data) {
       // log error
     });
 
 $http.get('https://coffinomad.azurewebsites.net/api/locaties').
-    success(function(data, status, headers, config) {
+    success(function(data) {
       $scope.locations = data;
     }).
-    error(function(data, status, headers, config) {
+    error(function(data) {
       // log error
     });
 
@@ -23,8 +23,8 @@ $http.get('https://coffinomad.azurewebsites.net/api/locaties').
 
 activate();
 
- function deleteData(CaffeeID) {
-  $http.delete("https://coffinomad.azurewebsites.net/api/caffees/" + CaffeeID).success(function(result) {
+ $scope.deleteData = function (CaffeeID) {
+  $http.delete("https://coffinomad.azurewebsites.net/api/caffees" + CaffeeID).success(function(result) {
       console.log(result);
       $scope.resultDelete = result;
   }).error(function() {
@@ -32,9 +32,8 @@ activate();
   });
 }
 
-
 $scope.insertData = function insertData(){   
-var Indata = {"Name": $scope.Name, "Straat": $scope.Straat, "Lokatie": $scope.Lokatie};
+var Indata = {"naam": $scope.name, "straat": $scope.straat, "locatieID": $scope.stad};
     $http({
     url: "https://coffinomad.azurewebsites.net/api/caffees",
     method: "POST",
