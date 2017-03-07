@@ -1,0 +1,49 @@
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1 id="homeHeading">Cafe Nomad</h1>
+            <hr>
+            <p></p>
+        </div>
+    </div>
+</header>
+
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Cafe</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+					<p>Naam : {{caffees.Name}}</p>
+			    <p>Straat : {{caffees.Straat}}</p>
+			    <p>Locatie : {{caffees.Locatie}}</p>
+					<ul>
+					  <li>
+					    <dl>
+					      <dt>Beoordelingen</dt>
+					      <dd ng-repeat="rating in caffees.Beoordelingen">{{rating.Beoordeling1}}</dd>
+					    </dl>
+					  </li>
+        </div>
+    </div>
+</section>
+
+
+<!-- <section class="bg-primary" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">Orange</h2>
+                <hr class="light">
+                <p class="text-faded">Mooie orange box</p>
+                <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+            </div>
+        </div>
+    </div>
+</section> -->
