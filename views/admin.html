@@ -21,7 +21,7 @@
         <th>Actions</th>
       </tr>
     </thead>
-    <tr ng-repeat="cafe in cafes">
+    <tr ng-repeat="cafe in cafes" class="caphes">
       <td>{{cafe.CaffeeID}}</td>
       <td>{{cafe.Name}}</td>
       <td>{{cafe.Straat}}</td>
@@ -49,7 +49,7 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="Name">Naam</label>
-                <input name="name" type="text" class="form-control"  ng-model="name" required> 
+                <input name="name" type="text" class="form-control"  ng-model="name" required>
               </div>
               <div class="form-group">
                 <label for="Street">Straat</label>
@@ -63,7 +63,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button  type="submit" ng-disabled="cafeform.$invalid" class="btn btn-default" ng-click="insertData()" data-dismiss="modal">Add</button>              
+              <button id="capheAdd"  type="submit" ng-disabled="cafeform.$invalid" class="btn btn-default" ng-click="insertData()" data-dismiss="modal">Add</button>
             </div>
           </form>
         </div>
