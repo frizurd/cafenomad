@@ -8,7 +8,7 @@ app.config(function($routeProvider){
 			controller: "MainController",
 			templateUrl: "views/home.html"
 		})
-		.when('/cafe', {
+		.when('/cafe/:id', {
 			controller: 'CafeDetailController',
 			templateUrl: 'views/cafe-detail.html'
 		})
