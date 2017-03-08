@@ -4,10 +4,11 @@ app.controller('MainController', function($scope, $routeParams, $http){
     self.locationList = [];
     self.typeList = [];
     self.cafeList = [];
+    var geenCafe = {
+        "Name" : "Geen cafe gevonden"
+    }
     self.cafeList.push(
-        {
-            "Name" : "Geen cafe gevonden"
-        }
+        geenCafe
     );
     var locationString = { 'Stad' : "Een locatie selecteren"};
     self.selectedLocation = locationString;
@@ -23,17 +24,14 @@ app.controller('MainController', function($scope, $routeParams, $http){
         console.log(request);
         if (self.selectedLocation != locationString && self.selectedType != typeString)  {
             $http.get(request).then(function(response) {
-                console.log( response.data);
+                console.log( response);
                 console.log( response.data.count);
                 console.log( "did Return");
-                if (response.data.count == 0) {
-                    self.cafeList.removeAll();
-                    self.cafeList.push(
-                        {
-                            "Name" : "Geen cafe gevonden"
-                        }
-                    )
+                if (response.data.length == 0) {
+                    while (self.cafeList.length) { self.cafeList.pop(); }
+                    self.cafeList.push(geenCafe)
                 } else {
+                    console.log("Did find");
                     self.cafeList = response.data;
                 }
             });
