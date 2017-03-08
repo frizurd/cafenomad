@@ -44,10 +44,19 @@ border-radius: 5px;
 
 @media (min-width: 768px) {
 	header {
-	    height: 600px;
+	    height: 500px;
 	}
 }
 
 #city-naam {
 	padding: 150px 0 150px 0;
+}
+
+nav#mainNav {
+    border: none;
+}
+
+.media a {
+	color: #5d5d5d;
+	text-decoration: none;
 }
