@@ -13,20 +13,20 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 	plugins : [
             'karma-chrome-launcher',
-            'karma-firefox-launcher',
             'karma-jasmine'
             ],
 
     // list of files / patterns to load in the browser
     files: [
 
-	  'node_modules/angular/angular.js',
-      'node_modules/angular-route/angular-route.js',
-      'node_modules/angular-mocks/angular-mocks.js',
-	  'js/*.js',
-		'js/controllers/*.js',
-      'test/unit.js',
-      'unit.js'
+        'node_modules/angular/angular.js',
+        'node_modules/angular-route/angular-route.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'js/app.js',
+        'js/controllers/*.js',
+        'js/controllers/MainController.spec.js'
+
+
     ],
 
 
@@ -66,7 +66,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Firefox', 'Chrome'],
+    browsers: [ 'Chrome'],
 
 
     // Continuous Integration mode

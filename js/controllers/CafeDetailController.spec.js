@@ -18,5 +18,4 @@ describe('CafeDetailController', function() {
     $httpBackend.flush();
     expect(ctrl.cafe).toEqual({name: 'cafe 2'});
   });
-
 });
