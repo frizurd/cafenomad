@@ -1,31 +1,32 @@
-describe('home view', function() {
 
+describe('Select location and type', function() {
 
-    it('go to detail cafe', function() {
-        browser.get('localhost/8000/');
+    beforeEach(function() {
+      browser.get('http://localhost:8000/');
+    });
 
-        //
-        // var selectDropdownbyNum = function ( dropdown, "1" ) {
-        //     if (optionNum){
-        //         var options = element.findElements(by.tagName('option'))
-        //             .then(function(options){
-        //                 options[optionNum].click();
-        //             });
-        //     }
-        // };
+    it('should go to detail cafe', function() {
+        element(by.buttonText("Een locatie selecteren")).click();
+        element(by.buttonText("Leiden")).click();
 
-        element(by.cssContainingText('dropdown', 'Amsterdam')).click();
+        element(by.buttonText("Een type selecteren")).click();
+        element(by.buttonText("Beste koffie")).click();
 
-        element(by.model('todoList.todoText')).sendKeys('write first protractor test');
-        element(by.css('[value="add"]')).click();
+        element(by.buttonText("Start up caffee")).click();
 
-        var todoList = element.all(by.repeater('todo in todoList.todos'));
-        expect(todoList.count()).toEqual(3);
-        expect(todoList.get(2).getText()).toEqual('write first protractor test');
+        it('should display Start up caffee street', function() {
+            expect(element(by.binding('caffees.Straat')).getText()).toBe('Zigzaglaan');
+        });
 
-        // You wrote your first test, cross it off the list
-        todoList.get(2).element(by.css('input')).click();
-        var completedAmount = element.all(by.css('.done-true'));
-        expect(completedAmount.count()).toEqual(2);
+        element(by.binding('location.Stad')).click();
+
+        // browser.pause()
+
+        it('should display 3 cafes', function() {
+            expect(element.all(by.repeater('c in curCity.Caffees')).count()).toEqual(2);
+        });
+
     });
 });
+
+

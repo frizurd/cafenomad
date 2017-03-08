@@ -1,7 +1,7 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1 id="homeHeading">Cafe Nomad</h1>
+            <h1 id="homeHeading">{{caffees.Name}}</h1>
             <hr>
             <p></p>
         </div>
@@ -22,7 +22,7 @@
         <div class="row">
 					<p>Naam : {{caffees.Name}}</p>
 			    <p>Straat : {{caffees.Straat}}</p>
-			    <p>Locatie : {{caffees.Locatie}}</p>
+          <p>Stad: <a href="/#/city/{{location.LocatieID}}">{{location.Stad}}</a></p>
 <!--					<ul>
 					  <li>
 					    <dl>

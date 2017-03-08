@@ -17,7 +17,7 @@ $http.get('https://coffinomad.azurewebsites.net/api/locaties').
     }).
     error(function(data) {
       // log error
-    });
+    }); 
 
 }
 
