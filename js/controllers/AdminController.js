@@ -24,7 +24,7 @@ $http.get('https://coffinomad.azurewebsites.net/api/locaties').
 activate();
 
  $scope.deleteData = function (CaffeeID) {
-  $http.delete("https://coffinomad.azurewebsites.net/api/caffees" + CaffeeID).success(function(result) {
+  $http.delete("https://coffinomad.azurewebsites.net/api/caffees/" + CaffeeID).success(function(result) {
       console.log(result);
       $scope.resultDelete = result;
   }).error(function() {
@@ -37,6 +37,15 @@ var Indata = {"naam": $scope.name, "straat": $scope.straat, "locatieID": $scope.
     $http({
     url: "https://coffinomad.azurewebsites.net/api/caffees",
     method: "POST",
+    params: Indata
+    })
+}
+
+$scope.updateData = function updateData(CaffeeID){   
+var Indata = {"naam": $scope.name, "straat": $scope.straat, "locatieID": $scope.stad};
+    $http({
+    url: "https://coffinomad.azurewebsites.net/api/caffees/" + CaffeeID,
+    method: "PUT",
     params: Indata
     })
 }
