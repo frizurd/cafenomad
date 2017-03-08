@@ -1,1 +1,63 @@
-Hello world!
+
+
+<div ng-controller='MainController as controller'>
+
+    <!--<section class="homeContainer">-->
+        <div class="dropdown" style="float: left" >
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" >{{controller.selectedLocation.Stad}}
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu" >
+                <li ng-repeat="location in controller.locationList">
+                    <button type="button" class="btn btn-default" ng-click="controller.selectLocation(location)">{{location.Stad}}</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dropdown" style="float: left" >
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" >{{controller.selectedType.Naam}}
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu" >
+                <li ng-repeat="typeDes in controller.typeList">
+                    <button type="button" class="btn btn-default"  ng-click="controller.selectType(typeDes)" > {{typeDes.Naam}}</button>
+                </li>
+            </ul>
+        </div>
+
+    <div class="list" style="float: left" >
+        <ul class="check" >
+            <li ng-repeat="cafe in controller.cafeList">
+                <a  href="#/cafe/{{cafe.CaffeeID}}" class="thumb">
+                    <button type="button" class="btn btn-default"> {{cafe.Name}}</button>
+
+                    <ul class="check" >
+                        <li ng-repeat="beoor in cafe.Beoordelingen">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            Beoordeling {{beoor.Beoordeling1}}
+                        </li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--</section>-->
+
+
+
+
+
+<!--<table class="table table-striped">-->
+    <!--<thead>-->
+    <!--<tr>-->
+        <!--<th>Location</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr ng-repeat="location in controller.locationList">-->
+        <!--<td>-->
+            <!--<p>{{location.Stad}}</p>-->
+        <!--</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+</div>
+
