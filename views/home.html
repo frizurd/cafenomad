@@ -1,45 +1,53 @@
+
 <header>
     <div class="header-content">
         <div class="header-content-inner">
             <h1 id="homeHeading">Cafe Nomad</h1>
             <hr>
-            <p>Select your city and your preference!</p>
-            <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            <p></p>
         </div>
     </div>
 </header>
 
 
-<section id="services">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Home</h2>
-                <hr class="primary">
-            </div>
+<div ng-controller='MainController as controller'>
+
+        <div class="dropdown" style="float: left" >
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" >{{controller.selectedLocation.Stad}}
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu" >
+                <li ng-repeat="location in controller.locationList">
+                    <button type="button" class="btn btn-default" ng-click="controller.selectLocation(location)">{{location.Stad}}</button>
+                </li>
+            </ul>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
 
-
-            Hello world!
-
-            
+        <div class="dropdown" style="float: left" >
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" >{{controller.selectedType.Naam}}
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu" >
+                <li ng-repeat="typeDes in controller.typeList">
+                    <button type="button" class="btn btn-default"  ng-click="controller.selectType(typeDes)" > {{typeDes.Naam}}</button>
+                </li>
+            </ul>
         </div>
-    </div>
-</section>
 
+    <div class="list" style="float: left" >
+        <ul class="check" >
+            <li ng-repeat="cafe in controller.cafeList">
+                <a  href="#/cafe/{{cafe.CaffeeID}}" class="thumb">
+                    <button type="button" class="btn btn-default"> {{cafe.Name}}</button>
 
-<section class="bg-primary" id="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Orange</h2>
-                <hr class="light">
-                <p class="text-faded">Mooie orange box</p>
-                <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
-            </div>
-        </div>
+                    <ul class="check" >
+                        <li ng-repeat="beoor in cafe.Beoordelingen">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            Beoordeling {{beoor.Beoordeling1}}
+                        </li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
     </div>
-</section>
+
+</div>
+
