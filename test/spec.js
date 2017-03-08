@@ -1,7 +1,7 @@
 describe('Get complaint 0', function() {
 
     beforeEach(function() {
-      browser.get('http://192.168.178.12:8000/#/complaints/0');
+      browser.get('http://localhost:8000/#/complaints/0');
     });
 
 

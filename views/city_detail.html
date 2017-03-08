@@ -1,0 +1,24 @@
+<header>
+  <div id="city-naam">
+    <h1>Coffeeshops in {{curCity.Stad}}</h1>
+  </div>
+</header>
+
+<div style="margin: 50px;"></div>
+
+<div class="container">
+  <div class="row">
+    <div ng-repeat="c in curCity.Caffees" class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <a href="/#/cafe/{{c.CaffeeID}}">
+          <img src="http://www.theemailcompany.com/wp-content/uploads/2016/02/no-image-placeholder-big.jpg" alt="no image">
+        </a>
+        <div class="caption">
+          <h3><a href="/#/cafe/{{c.CaffeeID}}">{{c.Name}}</a></h3>
+          <p>{{c.Straat}}</p>
+          <p><a href="/#/cafe/{{c.CaffeeID}}" class="btn btn-primary" role="button">More</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
