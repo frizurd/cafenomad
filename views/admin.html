@@ -1,11 +1,11 @@
 <header>
-    <div class="header-content">
-        <div class="header-content-inner">
-            <h1 id="homeHeading">Cafe Nomad</h1>
-            <hr>
-            <p></p>
-        </div>
+  <div class="header-content">
+    <div class="header-content-inner">
+      <h1 id="homeHeading">Cafe Nomad</h1>
+      <hr>
+      <p></p>
     </div>
+  </div>
 </header>
 
 
@@ -26,8 +26,9 @@
       <td>{{cafe.Name}}</td>
       <td>{{cafe.Straat}}</td>
       <td><button type="button" class="btn btn-danger" ng-click="deleteData(cafe.CaffeeID)"> <i class="fa fa-trash-o"></i> </button>
-        <button type="button" class="btn btn-info editButton" ng-click="openForm(cafe)" data-id="{{cafe.CaffeeID}}" data-cafe="{{cafe}}" data-target="#UpdateModal"  data-toggle="modal"> <i class="fa fa-pencil"></i> </button>
-        
+        <button type="button" class="btn btn-info editButton" ng-click="openForm(cafe)" data-id="{{cafe.CaffeeID}}" data-cafe="{{cafe}}"
+          data-target="#UpdateModal" data-toggle="modal"> <i class="fa fa-pencil"></i> </button>
+
       </td>
     </tr>
   </table>
@@ -87,7 +88,7 @@
           </div>
           <form name="cafeform" ng-submit="submit()">
             <div class="modal-body">
-               <div class="form-group">
+              <div class="form-group">
                 <input name="caffeeID" type="hidden" class="form-control" placeholder="{{cafe.CaffeeID}}" ng-model="caffeeID">
               </div>
               <div class="form-group">
@@ -102,9 +103,9 @@
               </div>
               <div class="form-group">
                 <label for="Location">Locatie</label>
-                <select class="form-control" ng-model="{{location.LocatieID}}">
-                <option ng-options="location in locations" value="{{location.LocatieID}}" placeholder="{{location.LocatieID}}">{{location.Stad}}</option>
-                </select>
+                <select class="form-control" ng-model="stad">
+          <option ng-repeat="location in locations" value="{{location.LocatieID}}">{{location.Stad}}</option>
+         </select>
               </div>
             </div>
             <div class="modal-footer">
