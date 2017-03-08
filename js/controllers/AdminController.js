@@ -1,5 +1,6 @@
 
 app.controller('AdminController', function($scope, $routeParams, $http){
+
 function activate(){
 
 $http.get('https://coffinomad.azurewebsites.net/api/caffees').
@@ -29,13 +30,21 @@ $scope.openForm = function (cafe){
 
 }
 
+$scope.refresh = function(){
+   $http.get('https://coffinomad.azurewebsites.net/api/caffees').
+    success(function(data) {
+      $scope.cafes = data;
+    }).
+    error(function(data) {
+      // log error
+    });
+}
+
  $scope.deleteData = function (CaffeeID) {
-  $http.delete("https://coffinomad.azurewebsites.net/api/caffees/" + CaffeeID).success(function(result) {
-      console.log(result);
+  $http.delete("https://coffinomad.azurewebsites.net/api/caffees/" + CaffeeID).success(function(result) {     
       $scope.resultDelete = result;
-       $scope.cafes.splice(CaffeeID, 1)
-  }).error(function() {
-      console.log("error");
+       $scope.refresh();        
+  }).error(function() {     
   });
 }
 
@@ -56,7 +65,8 @@ $scope.updateData = function updateData(CaffeeID){
     url: "https://coffinomad.azurewebsites.net/api/caffees?caffeeID=" + CaffeeID,
     method: "PUT",
     params: Indata
-    })
+})
+ $scope.refresh();
 }
 
 });
