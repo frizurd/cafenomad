@@ -20,6 +20,7 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
+    <link href="css/style.css" rel="stylesheet">
     <link href="css/creative.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -46,16 +47,15 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="/#/">Home</a>
+                    </li>
+										<li>
+												<a class="page-scroll" href="/#/cafe">Cafe</a>
+                    <li>
+                        <a class="page-scroll" href="/#/cities">Cities</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="/#/admin">Admin</a>
                     </li>
                 </ul>
             </div>
@@ -64,47 +64,9 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Cafe Nomad</h1>
-                <hr>
-                <p>Select your city and your preference!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
-            </div>
-        </div>
-    </header>
 
 
-		<section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Home</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div ng-view></div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="bg-primary" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Orange</h2>
-                    <hr class="light">
-                    <p class="text-faded">Mooie orange box</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
-                </div>
-            </div>
-        </div>
-    </section>
+		<div ng-view></div>
 
 
 
@@ -127,6 +89,6 @@
 
 		<script src="js/app.js"></script>
 		<script src="js/controllers/MainController.js"></script>
-
+		<script src="js/controllers/CafeDetailController.js"></script>
 	</body>
 </html>
