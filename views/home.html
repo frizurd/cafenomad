@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="">
         <div class="row">
 
             <div ng-controller='MainController as controller'>
@@ -46,7 +46,6 @@
                 <div class="list" style="float: left" >
                     <ul class="check" >
                         <li ng-repeat="cafe in controller.cafeList">
-
                             <a  href="#/cafe/{{cafe.CaffeeID}}" class="thumb">
                                 <button type="button" class="btn btn-default"> {{cafe.Name}}</button>
 
