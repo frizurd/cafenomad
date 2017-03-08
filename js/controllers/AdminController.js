@@ -1,6 +1,5 @@
 
 app.controller('AdminController', function($scope, $routeParams, $http){
-
 function activate(){
 
 $http.get('https://coffinomad.azurewebsites.net/api/caffees').
@@ -22,6 +21,8 @@ $http.get('https://coffinomad.azurewebsites.net/api/locaties').
 }
 
 activate();
+
+
 $scope.openForm = function (cafe){
 
     $scope.cafe = cafe;
@@ -32,6 +33,7 @@ $scope.openForm = function (cafe){
   $http.delete("https://coffinomad.azurewebsites.net/api/caffees/" + CaffeeID).success(function(result) {
       console.log(result);
       $scope.resultDelete = result;
+       $scope.cafes.splice(CaffeeID, 1)
   }).error(function() {
       console.log("error");
   });
@@ -39,11 +41,13 @@ $scope.openForm = function (cafe){
 
 $scope.insertData = function insertData(){   
 var Indata = {"naam": $scope.name, "straat": $scope.straat, "locatieID": $scope.stad};
+var Indatalocal = {"CaffeeID": $scope.cafes.length + 1,"Name": $scope.name, "Straat": $scope.straat, "LocatieID": $scope.stad};
     $http({
     url: "https://coffinomad.azurewebsites.net/api/caffees",
     method: "POST",
     params: Indata
-    })
+})
+$scope.cafes.push(Indatalocal);
 }
 
 $scope.updateData = function updateData(CaffeeID){  
