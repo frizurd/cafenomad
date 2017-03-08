@@ -10,6 +10,7 @@
     "test-single-run": "karma start test/karma.conf.js --single-run",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js"
+
   },
   "author": "",
   "license": "ISC",
