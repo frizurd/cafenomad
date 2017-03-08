@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="" ">
         <div class="row">
 
             <div ng-controller='MainController as controller'>
@@ -46,6 +46,18 @@
                 <div class="list" style="float: left" >
                     <ul class="check" >
                         <li ng-repeat="cafe in controller.cafeList">
+                            <!--<div class="thumbnail">-->
+                                <!--<a href="/#/cafe/{{cafe.CaffeeID}}">-->
+                                    <!--<img src="http://www.theemailcompany.com/wp-content/uploads/2016/02/no-image-placeholder-big.jpg" alt="no image">-->
+                                <!--</a>-->
+                                <!--<div class="caption">-->
+                                    <!--<h3><a href="/#/cafe/{{cafe.CaffeeID}}">{{cafe.Name}}</a></h3>-->
+                                    <!--<p>{{c.Straat}}</p>-->
+                                    <!--<p><a href="/#/cafe/{{cafe.CaffeeID}}" class="btn btn-primary" role="button">More</a></p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+
                             <a  href="#/cafe/{{cafe.CaffeeID}}" class="thumb">
                                 <button type="button" class="btn btn-default"> {{cafe.Name}}</button>
 
@@ -66,19 +78,3 @@
         </div>
     </div>
 </section>
-
-
-<section class="bg-primary" id="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Orange</h2>
-                <hr class="light">
-                <p class="text-faded">Mooie orange box</p>
-                <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
