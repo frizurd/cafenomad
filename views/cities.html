@@ -1,0 +1,33 @@
+<header>
+  <div id="city-naam">
+    <h1>Cities with the best Cafe's</h1>
+  </div>
+</header>
+
+<div style="margin: 50px;"></div>
+
+<div class="container" ng-controller="CityController">
+  <!-- Default panel contents -->
+  <div id="city-list" class="row">
+
+      <div class="col-xs-6 col-md-4" ng-repeat="cit in cities">
+        <div ng-hide="!cit.Caffees.length">
+            <h3><a href="#/city/{{cit.LocatieID}}">{{cit.Stad}}</a></h3>
+
+            <div class="media" ng-repeat="caf in cit.Caffees">
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object" src="https://ed100.org/img/avatar-placeholder.gif" alt="..." width="45px">
+                </a>
+              </div>
+
+              <div class="media-body">
+                <h4 class="media-heading">{{caf.Name}}</h4>
+                {{caf.Straat}}
+              </div>
+            </div>
+        </div>
+      </div>
+
+  </div>
+</div>
