@@ -1,0 +1,23 @@
+<header>
+  <div id="city-naam">
+    <h1>Cities with the best Cafe's</h1>
+  </div>
+</header>
+
+<div style="margin: 50px;"></div>
+
+<div class="container" ng-controller="CityController">
+  <!-- Default panel contents -->
+  <div class="row">
+
+
+      <div class="col-xs-6 col-md-4" ng-repeat="cit in cities">
+        <div ng-hide="!cit.Caffees.length">
+            <h3><a href="#/city/{{cit.LocatieID}}">{{cit.Stad}}</a></h3>
+
+            <div ng-repeat="caf in cit.Caffees">
+              * {{caf.Name}}
+            </div>
+        </div>
+  </div>
+</div>

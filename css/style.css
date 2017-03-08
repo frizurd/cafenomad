@@ -38,3 +38,7 @@ background-color: white;
 color: salmon;
 border-radius: 5px;
 }
+
+#city-naam {
+	padding: 150px 0 150px 0;
+}
