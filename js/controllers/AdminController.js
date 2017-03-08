@@ -1,23 +1,18 @@
 
-app.controller('AdminController', function($scope, $routeParams, $http){
+app.controller('AdminController', function($scope, $routeParams, $http, $location){
 
 function activate(){
 
-$http.get('https://coffinomad.azurewebsites.net/api/caffees').
-    success(function(data) {
-      $scope.cafes = data;
-    }).
-    error(function(data) {
-      // log error
+    $http.get('https://coffinomad.azurewebsites.net/api/caffees')
+    .then(function(response){
+      $scope.cafes = response.data;
+      $scope.responseError = response.error;
     });
 
-$http.get('https://coffinomad.azurewebsites.net/api/locaties').
-    success(function(data) {
-      $scope.locations = data;
-    }).
-    error(function(data) {
-      // log error
-    }); 
+    $http.get('https://coffinomad.azurewebsites.net/api/locaties')
+    .then(function(response){
+      $scope.locations = response.data;
+    });
 
 }
 
@@ -41,14 +36,14 @@ $scope.refresh = function(){
 }
 
  $scope.deleteData = function (CaffeeID) {
-  $http.delete("https://coffinomad.azurewebsites.net/api/caffees/" + CaffeeID).success(function(result) {     
+  $http.delete("https://coffinomad.azurewebsites.net/api/caffees/" + CaffeeID).success(function(result) {
       $scope.resultDelete = result;
-       $scope.refresh();        
-  }).error(function() {     
+       $scope.refresh();
+  }).error(function() {
   });
 }
 
-$scope.insertData = function insertData(){   
+$scope.insertData = function insertData(){
 var Indata = {"naam": $scope.name, "straat": $scope.straat, "locatieID": $scope.stad};
 var Indatalocal = {"CaffeeID": $scope.cafes.length + 1,"Name": $scope.name, "Straat": $scope.straat, "LocatieID": $scope.stad};
     $http({
@@ -59,7 +54,7 @@ var Indatalocal = {"CaffeeID": $scope.cafes.length + 1,"Name": $scope.name, "Str
 $scope.cafes.push(Indatalocal);
 }
 
-$scope.updateData = function updateData(CaffeeID){  
+$scope.updateData = function updateData(CaffeeID){
     var Indata = {"caffeeID":$scope.caffeeID, "naam": $scope.name, "straat": $scope.straat, "locatieID": $scope.stad};
     $http({
     url: "https://coffinomad.azurewebsites.net/api/caffees?caffeeID=" + CaffeeID,
@@ -68,5 +63,9 @@ $scope.updateData = function updateData(CaffeeID){
 })
  $scope.refresh();
 }
+
+$scope.isActive = function(route) {
+        return route === $location.path();
+    };
 
 });
