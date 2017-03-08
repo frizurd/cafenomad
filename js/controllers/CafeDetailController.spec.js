@@ -1,22 +1,24 @@
-describe('CafeDetailController', function() {
+describe('cafeDetails', function() {
+
   beforeEach(module('cafeNomad'));
 
-  var $httpBackend, ctrl;
+  describe('CafeDetailController', function() {
+    var CafeDetailController, $httpBackend, scope;
 
-  beforeEach(inject(function($componentController, _$httpBackend_, $routeParams) {
-    $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('caffees/2').respond({name: 'cafe 2'});
+    beforeEach(inject(function($componentController, _$httpBackend_, $controller, $rootScope, $routeParams) {
+      $httpBackend = _$httpBackend_;
 
-    $routeParams.id = '2';
+      $httpBackend.expectGET('http://coffinomad.azurewebsites.net/api/caffees/' + $routeParams.id).respond({Name: 'Top Secret', Straat: 'Mordor'});
 
-    ctrl = $componentController('CafeDetailController');
-  }));
+        scope = $rootScope.$new();
+        CafeDetailController = $controller('CafeDetailController', {
+          $scope: scope
+        });
+      }));
 
-  it('should fetch the cafe details', function() {
-    expect(ctrl.cafe).toBeUndefined();
-
-    $httpBackend.flush();
-    expect(ctrl.cafe).toEqual({name: 'cafe 2'});
-  });
-
+      it('should create cafe details', function() {
+        $httpBackend.flush();
+        expect(scope.caffees).toEqual({Name: 'Top Secret', Straat: 'Mordor'});
+      });
+    });
 });
