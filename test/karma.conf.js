@@ -13,25 +13,26 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 	plugins : [
             'karma-chrome-launcher',
-            'karma-firefox-launcher',
+            // 'karma-firefox-launcher',
             'karma-jasmine'
             ],
 
     // list of files / patterns to load in the browser
     files: [
-
-	  'node_modules/angular/angular.js',
-      'node_modules/angular-route/angular-route.js',
-      'node_modules/angular-mocks/angular-mocks.js',
-	  'js/*.js',
-		'js/controllers/*.js',
-      'test/unit.js',
-      'unit.js'
+      
+      // 'node_modules/angular/angular.js',
+      //   'node_modules/angular-route/angular-route.js',
+      //   'node_modules/angular-mocks/angular-mocks.js',
+  	  // 'js/*.js',
+  		// 'js/controllers/*.js',
+      'test/spec2.js'
     ],
 
 
     // list of files to exclude
     exclude: [
+      'js/creative.min.js',
+      'CafeDetailController.spec.js'
     ],
 
 
@@ -61,17 +62,17 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Firefox', 'Chrome'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous

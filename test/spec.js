@@ -1,11 +1,12 @@
-describe('Get complaint 0', function() {
+describe('Get 2 Cafes', function() {
 
     beforeEach(function() {
-      browser.get('http://localhost:8000/#/complaints/0');
+      browser.get('http://localhost:8000/#/city/2');
     });
 
 
-    it('should display page id 0', function() {
+    it('should display 2 elements', function() {
       expect(element(by.binding('id')).getText()).toBe('0');
     });
+
   });
